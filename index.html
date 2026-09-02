@@ -3,175 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>دوري - سرافيس معربا</title>
+<title>دوري | سرافيس معربا</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Tahoma,Arial,sans-serif;
+  box-sizing:border-box;
+  font-family:Tahoma,Arial,sans-serif;
 }
 
 body{
-    background:#f3f7f8;
-    color:#222;
+  margin:0;
+  background:#f2f5f5;
+  color:#222;
 }
 
 .header{
-    background:linear-gradient(135deg,#078b68,#10ad7e);
-    color:white;
-    text-align:center;
-    padding:55px 20px 45px;
-    border-radius:0 0 45px 45px;
+  background:linear-gradient(135deg,#087f60,#10aa7c);
+  color:white;
+  text-align:center;
+  padding:35px 15px;
+  border-radius:0 0 30px 30px;
 }
 
 .logo{
-    font-size:48px;
-    font-weight:bold;
+  font-size:42px;
+  font-weight:bold;
 }
 
-.subtitle{
-    font-size:22px;
-    margin-top:12px;
+.header p{
+  font-size:19px;
 }
 
 .container{
-    width:92%;
-    max-width:700px;
-    margin:25px auto;
+  width:94%;
+  max-width:700px;
+  margin:20px auto;
 }
 
 .card{
-    background:white;
-    border-radius:28px;
-    padding:25px;
-    margin-bottom:22px;
-    box-shadow:0 6px 20px rgba(0,0,0,.07);
+  background:white;
+  padding:22px;
+  margin-bottom:18px;
+  border-radius:24px;
+  box-shadow:0 5px 18px rgba(0,0,0,.07);
 }
 
-.title{
-    color:#087f60;
-    font-size:27px;
-    font-weight:bold;
-    margin-bottom:20px;
+h2{
+  color:#087f60;
+  margin-top:0;
+}
+
+h3{
+  margin-bottom:8px;
+}
+
+button{
+  width:100%;
+  border:0;
+  padding:15px;
+  border-radius:15px;
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.primary{
+  background:#087f60;
+  color:white;
+}
+
+.secondary{
+  background:#e5f5f0;
+  color:#087f60;
+}
+
+.red{
+  background:#c62828;
+  color:white;
+}
+
+input,select{
+  width:100%;
+  padding:14px;
+  border:2px solid #ddd;
+  border-radius:13px;
+  margin-top:9px;
+  margin-bottom:8px;
+  font-size:17px;
 }
 
 .route{
-    border:2px solid #e8eeee;
-    border-radius:22px;
-    padding:20px;
-    margin-bottom:18px;
+  border:2px solid #e6eeee;
+  padding:18px;
+  border-radius:20px;
+  margin-top:15px;
 }
 
 .route h3{
-    color:#087f60;
-    font-size:25px;
-    margin-bottom:12px;
+  color:#087f60;
+  font-size:25px;
 }
 
 .route p{
-    font-size:18px;
-    line-height:1.8;
+  font-size:18px;
+  line-height:1.8;
 }
 
-.status{
-    display:inline-block;
-    background:#d9f7e2;
-    color:#15803d;
-    padding:7px 13px;
-    border-radius:20px;
-    margin-top:10px;
-}
-
-.cars{
-    font-size:20px;
-    line-height:2;
+.badge{
+  display:inline-block;
+  background:#d9f5df;
+  color:#16803c;
+  padding:7px 13px;
+  border-radius:20px;
 }
 
 .station{
-    background:#fff6c7;
-    border-radius:18px;
-    padding:18px;
-    margin-top:12px;
-    font-size:19px;
-}
-
-.button{
-    width:100%;
-    border:0;
-    border-radius:17px;
-    padding:16px;
-    margin-top:12px;
-    background:#087f60;
-    color:white;
-    font-size:19px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.button.secondary{
-    background:#e7f5f1;
-    color:#087f60;
-}
-
-.button.danger{
-    background:#c62828;
-}
-
-.hidden{
-    display:none;
-}
-
-.input{
-    width:100%;
-    padding:15px;
-    margin-top:10px;
-    border:2px solid #e1e6e6;
-    border-radius:14px;
-    font-size:17px;
-}
-
-select{
-    width:100%;
-    padding:15px;
-    margin-top:10px;
-    border:2px solid #e1e6e6;
-    border-radius:14px;
-    font-size:17px;
-    background:white;
-}
-
-.info{
-    background:#eef8f5;
-    padding:18px;
-    border-radius:18px;
-    margin-top:15px;
-    line-height:2;
-    font-size:18px;
+  background:#fff7ca;
+  padding:18px;
+  border-radius:18px;
+  margin-top:12px;
+  line-height:1.9;
 }
 
 .queue{
-    font-size:22px;
-    color:#087f60;
-    font-weight:bold;
-    text-align:center;
-    padding:20px;
+  text-align:center;
+  background:#eef8f5;
+  padding:20px;
+  border-radius:18px;
+  margin-top:12px;
+  font-size:23px;
+  font-weight:bold;
+  color:#087f60;
 }
 
-.small{
-    color:#777;
-    font-size:15px;
-    margin-top:8px;
+.result{
+  background:#eef8f5;
+  padding:18px;
+  border-radius:17px;
+  margin-top:15px;
+  line-height:2;
+}
+
+.hidden{
+  display:none;
 }
 
 .footer{
-    text-align:center;
-    color:#777;
-    padding:20px;
+  text-align:center;
+  padding:25px;
+  color:#777;
 }
-
 </style>
 </head>
 
@@ -179,13 +161,13 @@ select{
 
 <header class="header">
 
-    <div class="logo">
-        دوري 🚌
-    </div>
+  <div class="logo">
+    دوري 🚌
+  </div>
 
-    <div class="subtitle">
-        دليل سرافيس معربا
-    </div>
+  <p>
+    نظام سرافيس معربا ↔ دمشق
+  </p>
 
 </header>
 
@@ -194,104 +176,107 @@ select{
 
 
 <!-- =========================
-     الواجهة الرئيسية للراكب
+     الراكب
 ========================= -->
 
-<section id="home">
+<section id="passenger">
 
 <div class="card">
 
-    <div class="title">
-        🚌 خطوط السرافيس
-    </div>
+<h2>🚌 خطوط السرافيس</h2>
 
-    <div class="route">
+<div class="route">
 
-        <h3>
-            سرفيس 101
-        </h3>
+<h3>
+سرفيس 101
+</h3>
 
-        <p>
-            📍 الخط:
-            <strong>معربا ↔ دمشق</strong>
-        </p>
+<p>
+📍 الخط:
+<strong>معربا ↔ دمشق</strong>
+</p>
 
-        <span class="status">
-            متاح
-        </span>
+<span class="badge">
+متاح
+</span>
 
-    </div>
+</div>
 
 </div>
 
 
 <div class="card">
 
-    <div class="title">
-        📍 الكراجات
-    </div>
+<h2>
+📍 الكراجات
+</h2>
 
-    <div class="station">
+<div class="station">
 
-        🟢 <strong>كراج معربا</strong>
+<strong>
+🟢 كراج معربا
+</strong>
 
-        <br>
+<br>
 
-        موقف انطلاق السرافيس باتجاه دمشق
+موقف انطلاق السرافيس باتجاه دمشق
 
-        <button
-            class="button secondary"
-            onclick="openMap('maaraba')">
+<button
+class="secondary"
+onclick="mapMaaraba()">
 
-            🗺️ عرض الموقع
+🗺️ عرض موقع الكراج
 
-        </button>
+</button>
 
-    </div>
+</div>
 
 
-    <div class="station">
+<div class="station">
 
-        🔵 <strong>كراج العباسيين – دمشق</strong>
+<strong>
+🔵 كراج العباسيين – دمشق
+</strong>
 
-        <br>
+<br>
 
-        موقف السرافيس باتجاه معربا
+موقف السرافيس باتجاه معربا
 
-        <button
-            class="button secondary"
-            onclick="openMap('abbasiyeen')">
+<button
+class="secondary"
+onclick="mapAbbasiyeen()">
 
-            🗺️ عرض الموقع
+🗺️ عرض موقع الكراج
 
-        </button>
+</button>
 
-    </div>
+</div>
 
 </div>
 
 
 <div class="card">
 
-    <div class="title">
-        👤 الدخول
-    </div>
+<h2>
+👤 الدخول
+</h2>
 
-    <button
-        class="button"
-        onclick="showDriver()">
+<button
+class="primary"
+onclick="openDriver()">
 
-        🚐 دخول السائق
+🚐 دخول السائق
 
-    </button>
+</button>
 
-    <button
-        class="button"
-        onclick="showAdmin()">
 
-        👨‍💼 دخول الإدارة
+<button
+class="secondary"
+onclick="openAdmin()">
 
-    </button>
+👨‍💼 دخول الإدارة
+
+</button>
 
 </div>
 
@@ -300,78 +285,116 @@ select{
 
 
 <!-- =========================
-     لوحة السائق
+     السائق
 ========================= -->
 
-<section id="driver" class="hidden">
+<section
+id="driver"
+class="hidden">
 
 <div class="card">
 
-    <div class="title">
-        🚐 لوحة السائق
-    </div>
+<h2>
+🚐 لوحة السائق
+</h2>
 
-    <input
-        id="driverName"
-        class="input"
-        placeholder="اسم السائق">
+<label>
+اسم السائق
+</label>
 
-    <input
-        id="driverNumber"
-        class="input"
-        placeholder="رقم السرفيس">
+<input
+id="driverName"
+type="text"
+placeholder="مثال: أحمد محمد">
 
-    <select id="driverStation">
 
-        <option value="">
-            اختر الكراج
-        </option>
+<label>
+رقم السرفيس
+</label>
 
-        <option value="maaraba">
-            كراج معربا
-        </option>
+<input
+id="busNumber"
+type="text"
+placeholder="مثال: 101">
 
-        <option value="abbasiyeen">
-            كراج العباسيين – دمشق
-        </option>
 
-    </select>
+<label>
+الكراج
+</label>
 
-    <button
-        class="button"
-        onclick="reserveQueue()">
+<select id="station">
 
-        📍 حجز دوري في الكراج
+<option value="">
+-- اختر الكراج --
+</option>
 
-    </button>
+<option value="maaraba">
+كراج معربا
+</option>
 
-    <div
-        id="driverResult"
-        class="info hidden">
-    </div>
+<option value="abbasiyeen">
+كراج العباسيين – دمشق
+</option>
+
+</select>
+
+
+<button
+class="primary"
+onclick="takeTurn()">
+
+📍 أخذ دور في الكراج
+
+</button>
+
+
+<div
+id="driverResult"
+class="result hidden">
+</div>
 
 </div>
 
 
 <div class="card">
 
-    <div class="title">
-        🔄 التنقل بين الكراجات
-    </div>
+<h2>
+🔢 دوري
+</h2>
 
-    <p>
-        يستطيع السائق حجز دوره في كراج معربا
-        أو كراج العباسيين حسب مكان وجوده.
-    </p>
+<div class="queue">
+
+🟢 كراج معربا
+
+<br>
+
+<span id="driverMaaraba">
+لا يوجد
+</span>
+
+</div>
+
+
+<div class="queue">
+
+🔵 كراج العباسيين – دمشق
+
+<br>
+
+<span id="driverAbbasiyeen">
+لا يوجد
+</span>
+
+</div>
 
 </div>
 
 
 <button
-    class="button secondary"
-    onclick="backHome()">
+class="secondary"
+onclick="home()">
 
-    ⬅️ العودة
+⬅️ العودة
 
 </button>
 
@@ -380,23 +403,24 @@ select{
 
 
 <!-- =========================
-     لوحة الإدارة
+     الإدارة
 ========================= -->
 
-<section id="admin" class="hidden">
+<section
+id="admin"
+class="hidden">
+
 
 <div class="card">
 
-    <div class="title">
-        👨‍💼 لوحة الإدارة
-    </div>
+<h2>
+👨‍💼 لوحة الإدارة
+</h2>
 
-    <div class="info">
-
-        الإدارة تتحكم بالسرافيس والسائقين
-        والأدوار في الكراجات.
-
-    </div>
+<p>
+من هنا تتم إدارة السرافيس والسائقين
+والأدوار في الكراجات.
+</p>
 
 </div>
 
@@ -405,120 +429,145 @@ select{
 
 <div class="card">
 
-    <div class="title">
-        🚌 إضافة سرفيس
-    </div>
+<h2>
+🚌 إضافة سرفيس للخط
+</h2>
 
-    <input
-        id="newBusNumber"
-        class="input"
-        placeholder="رقم السرفيس">
+<input
+id="adminBus"
+type="text"
+placeholder="رقم السرفيس">
 
-    <input
-        id="newDriverName"
-        class="input"
-        placeholder="اسم السائق">
+<input
+id="adminDriver"
+type="text"
+placeholder="اسم السائق">
 
-    <button
-        class="button"
-        onclick="addBus()">
+<button
+class="primary"
+onclick="addBus()">
 
-        ➕ إضافة السرفيس
+➕ إضافة السرفيس
 
-    </button>
+</button>
 
-    <div
-        id="busResult"
-        class="info hidden">
-    </div>
+
+<div
+id="busResult"
+class="result hidden">
+</div>
 
 </div>
 
 
-<!-- إدارة السائق -->
+
+<!-- بيانات الشخص -->
 
 <div class="card">
 
-    <div class="title">
-        👤 بيانات السائق
-    </div>
+<h2>
+👤 بيانات الشخص
+</h2>
 
-    <input
-        id="personName"
-        class="input"
-        placeholder="اسم الشخص">
+<input
+id="personName"
+type="text"
+placeholder="اسم الشخص">
 
-    <input
-        id="personPhone"
-        class="input"
-        placeholder="رقم الهاتف">
+<input
+id="personPhone"
+type="tel"
+placeholder="رقم الهاتف">
 
-    <input
-        id="personBus"
-        class="input"
-        placeholder="رقم السرفيس">
+<input
+id="personBus"
+type="text"
+placeholder="رقم السرفيس">
 
-    <button
-        class="button"
-        onclick="addPerson()">
+<button
+class="primary"
+onclick="savePerson()">
 
-        💾 حفظ بيانات الشخص
+💾 حفظ البيانات
 
-    </button>
+</button>
 
-    <div
-        id="personResult"
-        class="info hidden">
-    </div>
+
+<div
+id="personResult"
+class="result hidden">
+</div>
 
 </div>
+
 
 
 <!-- الأدوار -->
 
 <div class="card">
 
-    <div class="title">
-        📋 الأدوار في الكراجات
-    </div>
-
-    <div class="station">
-
-        🟢 كراج معربا
-
-        <div
-            id="maarabaQueue"
-            class="queue">
-
-            الدور الحالي: 0
-
-        </div>
-
-    </div>
+<h2>
+📋 الأدوار في الكراجات
+</h2>
 
 
-    <div class="station">
+<div class="station">
 
-        🔵 كراج العباسيين – دمشق
+🟢 <strong>
+كراج معربا
+</strong>
 
-        <div
-            id="abbasiyeenQueue"
-            class="queue">
+<div
+id="maarabaAdmin"
+class="queue">
 
-            الدور الحالي: 0
+الدور الحالي: 0
 
-        </div>
+</div>
 
-    </div>
+<button
+class="red"
+onclick="resetMaaraba()">
+
+🔄 تصفير دور معربا
+
+</button>
+
+</div>
+
+
+<div class="station">
+
+🔵 <strong>
+كراج العباسيين – دمشق
+</strong>
+
+<div
+id="abbasiyeenAdmin"
+class="queue">
+
+الدور الحالي: 0
+
+</div>
+
+<button
+class="red"
+onclick="resetAbbasiyeen()">
+
+🔄 تصفير دور العباسيين
+
+</button>
+
+</div>
 
 </div>
 
 
 <button
-    class="button secondary"
-    onclick="backHome()">
+class="secondary"
+onclick="home()">
 
-    ⬅️ العودة
+⬅️ العودة
 
 </button>
 
@@ -528,289 +577,474 @@ select{
 
 
 <div class="footer">
-    دوري 🚌 — دليل سرافيس معربا
+
+دوري 🚌
+
+<br>
+
+معربا ↔ دمشق
+
 </div>
 
 
 
 <script>
 
-/* =========================
-   إظهار الواجهات
-========================= */
+/* =================================
+   المتغيرات
+================================= */
+
+let maarabaTurn =
+Number(localStorage.getItem("maarabaTurn") || 0);
+
+let abbasiyeenTurn =
+Number(localStorage.getItem("abbasiyeenTurn") || 0);
+
+
+/* =================================
+   إخفاء الواجهات
+================================= */
 
 function hideAll(){
 
-    document.getElementById("home")
-        .classList.add("hidden");
+  document
+  .getElementById("passenger")
+  .classList.add("hidden");
 
-    document.getElementById("driver")
-        .classList.add("hidden");
+  document
+  .getElementById("driver")
+  .classList.add("hidden");
 
-    document.getElementById("admin")
-        .classList.add("hidden");
-
-}
-
-
-function showDriver(){
-
-    hideAll();
-
-    document.getElementById("driver")
-        .classList.remove("hidden");
+  document
+  .getElementById("admin")
+  .classList.add("hidden");
 
 }
 
 
-function showAdmin(){
+/* =================================
+   الرئيسية
+================================= */
 
-    hideAll();
+function home(){
 
-    document.getElementById("admin")
-        .classList.remove("hidden");
+  hideAll();
 
-}
-
-
-function backHome(){
-
-    hideAll();
-
-    document.getElementById("home")
-        .classList.remove("hidden");
+  document
+  .getElementById("passenger")
+  .classList.remove("hidden");
 
 }
 
 
+/* =================================
+   السائق
+================================= */
 
-/* =========================
-   الخريطة
-========================= */
+function openDriver(){
 
-function openMap(place){
+  hideAll();
 
-    let url = "";
+  document
+  .getElementById("driver")
+  .classList.remove("hidden");
 
-    if(place === "maaraba"){
-
-        url =
-        "https://www.google.com/maps/search/?api=1&query=كراج+معربا";
-
-    }
-
-    if(place === "abbasiyeen"){
-
-        url =
-        "https://www.google.com/maps/search/?api=1&query=كراج+العباسيين+دمشق";
-
-    }
-
-    window.open(url,"_blank");
+  updateAdmin();
 
 }
 
 
+/* =================================
+   الإدارة
+================================= */
 
-/* =========================
-   أدوار الكراجات
-========================= */
+function openAdmin(){
 
-let maarabaQueue =
-    Number(localStorage.getItem("maarabaQueue") || 0);
+  hideAll();
 
-let abbasiyeenQueue =
-    Number(localStorage.getItem("abbasiyeenQueue") || 0);
+  document
+  .getElementById("admin")
+  .classList.remove("hidden");
 
-
-function updateQueues(){
-
-    document.getElementById("maarabaQueue")
-        .textContent =
-        "الدور الحالي: " + maarabaQueue;
-
-
-    document.getElementById("abbasiyeenQueue")
-        .textContent =
-        "الدور الحالي: " + abbasiyeenQueue;
+  updateAdmin();
 
 }
 
 
-updateQueues();
+/* =================================
+   خريطة معربا
+================================= */
 
+function mapMaaraba(){
 
-
-function reserveQueue(){
-
-    const name =
-        document.getElementById("driverName").value.trim();
-
-    const bus =
-        document.getElementById("driverNumber").value.trim();
-
-    const station =
-        document.getElementById("driverStation").value;
-
-    const result =
-        document.getElementById("driverResult");
-
-
-    if(!name || !bus || !station){
-
-        alert("يرجى إدخال اسم السائق ورقم السرفيس واختيار الكراج.");
-
-        return;
-
-    }
-
-
-    let number;
-
-
-    if(station === "maaraba"){
-
-        maarabaQueue++;
-
-        number = maarabaQueue;
-
-        localStorage.setItem(
-            "maarabaQueue",
-            maarabaQueue
-        );
-
-    }
-
-    else{
-
-        abbasiyeenQueue++;
-
-        number = abbasiyeenQueue;
-
-        localStorage.setItem(
-            "abbasiyeenQueue",
-            abbasiyeenQueue
-        );
-
-    }
-
-
-    const stationName =
-        station === "maaraba"
-        ? "كراج معربا"
-        : "كراج العباسيين – دمشق";
-
-
-    result.classList.remove("hidden");
-
-    result.innerHTML =
-
-        "✅ تم تسجيل دور السائق<br><br>" +
-
-        "👤 السائق: " + name + "<br>" +
-
-        "🚌 السرفيس: " + bus + "<br>" +
-
-        "📍 الكراج: " + stationName + "<br>" +
-
-        "🔢 رقم الدور: <strong>" +
-        number +
-        "</strong>";
-
-
-    updateQueues();
+  window.open(
+    "https://www.google.com/maps/search/?api=1&query=كراج+معربا",
+    "_blank"
+  );
 
 }
 
 
+/* =================================
+   خريطة العباسيين
+================================= */
 
-/* =========================
+function mapAbbasiyeen(){
+
+  window.open(
+    "https://www.google.com/maps/search/?api=1&query=كراج+العباسيين+دمشق",
+    "_blank"
+  );
+
+}
+
+
+/* =================================
+   أخذ الدور
+================================= */
+
+function takeTurn(){
+
+  const name =
+    document
+    .getElementById("driverName")
+    .value
+    .trim();
+
+  const bus =
+    document
+    .getElementById("busNumber")
+    .value
+    .trim();
+
+  const station =
+    document
+    .getElementById("station")
+    .value;
+
+  const result =
+    document
+    .getElementById("driverResult");
+
+
+  if(!name || !bus || !station){
+
+    alert(
+      "يرجى إدخال اسم السائق ورقم السرفيس واختيار الكراج."
+    );
+
+    return;
+
+  }
+
+
+  let turn;
+
+  let stationName;
+
+
+  if(station === "maaraba"){
+
+    maarabaTurn++;
+
+    turn = maarabaTurn;
+
+    stationName =
+      "كراج معربا";
+
+    localStorage.setItem(
+      "maarabaTurn",
+      maarabaTurn
+    );
+
+    localStorage.setItem(
+      "driverMaaraba",
+      turn
+    );
+
+  }
+
+  else{
+
+    abbasiyeenTurn++;
+
+    turn = abbasiyeenTurn;
+
+    stationName =
+      "كراج العباسيين – دمشق";
+
+    localStorage.setItem(
+      "abbasiyeenTurn",
+      abbasiyeenTurn
+    );
+
+    localStorage.setItem(
+      "driverAbbasiyeen",
+      turn
+    );
+
+  }
+
+
+  result
+  .classList
+  .remove("hidden");
+
+
+  result.innerHTML =
+
+    "✅ تم تسجيل الدور<br><br>" +
+
+    "👤 السائق: " +
+    name +
+    "<br>" +
+
+    "🚌 السرفيس: " +
+    bus +
+    "<br>" +
+
+    "📍 الكراج: " +
+    stationName +
+    "<br>" +
+
+    "🔢 رقم الدور: " +
+
+    "<strong>" +
+    turn +
+    "</strong>";
+
+
+  updateAdmin();
+
+}
+
+
+/* =================================
+   تحديث الأدوار
+================================= */
+
+function updateAdmin(){
+
+  document
+  .getElementById("maarabaAdmin")
+  .textContent =
+    "الدور الحالي: " +
+    maarabaTurn;
+
+
+  document
+  .getElementById("abbasiyeenAdmin")
+  .textContent =
+    "الدور الحالي: " +
+    abbasiyeenTurn;
+
+
+  const dm =
+    localStorage.getItem(
+      "driverMaaraba"
+    );
+
+
+  const da =
+    localStorage.getItem(
+      "driverAbbasiyeen"
+    );
+
+
+  document
+  .getElementById("driverMaaraba")
+  .textContent =
+    dm
+    ? "دورك: " + dm
+    : "لا يوجد";
+
+
+  document
+  .getElementById("driverAbbasiyeen")
+  .textContent =
+    da
+    ? "دورك: " + da
+    : "لا يوجد";
+
+}
+
+
+/* =================================
    إضافة سرفيس
-========================= */
+================================= */
 
 function addBus(){
 
-    const bus =
-        document.getElementById("newBusNumber")
-        .value.trim();
+  const bus =
+    document
+    .getElementById("adminBus")
+    .value
+    .trim();
 
-    const driver =
-        document.getElementById("newDriverName")
-        .value.trim();
+  const driver =
+    document
+    .getElementById("adminDriver")
+    .value
+    .trim();
 
-    const result =
-        document.getElementById("busResult");
-
-
-    if(!bus || !driver){
-
-        alert("أدخل رقم السرفيس واسم السائق.");
-
-        return;
-
-    }
+  const result =
+    document
+    .getElementById("busResult");
 
 
-    result.classList.remove("hidden");
+  if(!bus || !driver){
 
-    result.innerHTML =
+    alert(
+      "يرجى إدخال رقم السرفيس واسم السائق."
+    );
 
-        "✅ تمت إضافة السرفيس بنجاح<br><br>" +
+    return;
 
-        "🚌 رقم السرفيس: " + bus + "<br>" +
+  }
 
-        "👤 السائق: " + driver + "<br>" +
 
-        "🛣️ الخط: معربا ↔ دمشق";
+  result
+  .classList
+  .remove("hidden");
+
+
+  result.innerHTML =
+
+    "✅ تمت إضافة السرفيس<br><br>" +
+
+    "🚌 رقم السرفيس: " +
+    bus +
+    "<br>" +
+
+    "👤 السائق: " +
+    driver +
+    "<br>" +
+
+    "🛣️ الخط: معربا ↔ دمشق";
+
+}
+
+
+/* =================================
+   حفظ بيانات الشخص
+================================= */
+
+function savePerson(){
+
+  const name =
+    document
+    .getElementById("personName")
+    .value
+    .trim();
+
+  const phone =
+    document
+    .getElementById("personPhone")
+    .value
+    .trim();
+
+  const bus =
+    document
+    .getElementById("personBus")
+    .value
+    .trim();
+
+  const result =
+    document
+    .getElementById("personResult");
+
+
+  if(!name || !phone || !bus){
+
+    alert(
+      "يرجى إدخال جميع بيانات الشخص."
+    );
+
+    return;
+
+  }
+
+
+  result
+  .classList
+  .remove("hidden");
+
+
+  result.innerHTML =
+
+    "✅ تم حفظ بيانات الشخص<br><br>" +
+
+    "👤 الاسم: " +
+    name +
+    "<br>" +
+
+    "📱 الهاتف: " +
+    phone +
+    "<br>" +
+
+    "🚌 السرفيس: " +
+    bus;
 
 }
 
 
+/* =================================
+   تصفير كراج معربا
+================================= */
 
-/* =========================
-   بيانات الشخص
-========================= */
+function resetMaaraba(){
 
-function addPerson(){
+  if(
+    confirm(
+      "هل تريد تصفير دور كراج معربا؟"
+    )
+  ){
 
-    const name =
-        document.getElementById("personName")
-        .value.trim();
+    maarabaTurn = 0;
 
-    const phone =
-        document.getElementById("personPhone")
-        .value.trim();
+    localStorage.setItem(
+      "maarabaTurn",
+      0
+    );
 
-    const bus =
-        document.getElementById("personBus")
-        .value.trim();
+    updateAdmin();
 
-    const result =
-        document.getElementById("personResult");
-
-
-    if(!name || !phone || !bus){
-
-        alert("يرجى إدخال جميع بيانات الشخص.");
-
-        return;
-
-    }
-
-
-    result.classList.remove("hidden");
-
-    result.innerHTML =
-
-        "✅ تم حفظ بيانات الشخص<br><br>" +
-
-        "👤 الاسم: " + name + "<br>" +
-
-        "📱 الهاتف: " + phone + "<br>" +
-
-        "🚌 السرفيس: " + bus;
+  }
 
 }
+
+
+/* =================================
+   تصفير كراج العباسيين
+================================= */
+
+function resetAbbasiyeen(){
+
+  if(
+    confirm(
+      "هل تريد تصفير دور كراج العباسيين؟"
+    )
+  ){
+
+    abbasiyeenTurn = 0;
+
+    localStorage.setItem(
+      "abbasiyeenTurn",
+      0
+    );
+
+    updateAdmin();
+
+  }
+
+}
+
+
+/* =================================
+   تشغيل التطبيق
+================================= */
+
+updateAdmin();
 
 </script>
 
