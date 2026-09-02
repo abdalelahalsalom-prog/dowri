@@ -19,453 +19,348 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, #1769ff, #0047b3);
+    background: linear-gradient(135deg, #087f5b, #0ca678);
     color: white;
-    padding: 25px 15px 35px;
+    padding: 25px 20px;
     text-align: center;
-    border-radius: 0 0 30px 30px;
-}
-
-.logo {
-    width: 75px;
-    height: 75px;
-    background: white;
-    color: #1769ff;
-    border-radius: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    font-size: 32px;
-    font-weight: bold;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 header h1 {
-    margin: 12px 0 5px;
-    font-size: 30px;
+    margin: 0;
+    font-size: 32px;
 }
 
 header p {
-    margin: 0;
-    opacity: .9;
+    margin: 8px 0 0;
+    font-size: 16px;
+    opacity: 0.9;
 }
 
 .container {
+    width: 92%;
     max-width: 600px;
-    margin: -20px auto 30px;
-    padding: 0 15px;
+    margin: 20px auto;
 }
 
 .card {
     background: white;
-    border-radius: 20px;
+    border-radius: 18px;
     padding: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 
-h2 {
+.card h2 {
     margin-top: 0;
+    color: #087f5b;
     font-size: 21px;
 }
 
-.direction {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+.welcome {
+    text-align: center;
 }
 
-.direction button {
-    border: 2px solid #e1e7ef;
-    background: white;
+.welcome-icon {
+    font-size: 55px;
+    margin-bottom: 5px;
+}
+
+.service {
+    border: 2px solid #e9ecef;
     border-radius: 15px;
-    padding: 18px 8px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.direction button.active {
-    background: #1769ff;
-    color: white;
-    border-color: #1769ff;
-}
-
-.main-btn {
-    width: 100%;
-    border: none;
-    background: #1769ff;
-    color: white;
     padding: 16px;
-    border-radius: 14px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 15px;
+    margin-top: 12px;
+    transition: 0.2s;
 }
 
-.info {
-    display: none;
+.service:hover {
+    border-color: #0ca678;
 }
 
-.route-title {
-    background: #eef4ff;
-    padding: 15px;
-    border-radius: 14px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    color: #1455bd;
-}
-
-.vehicle {
-    border: 1px solid #e4e8ee;
-    border-radius: 15px;
-    padding: 15px;
-    margin-bottom: 10px;
+.service-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.vehicle-number {
+.service-number {
+    font-size: 24px;
     font-weight: bold;
-    font-size: 18px;
+    color: #087f5b;
 }
 
 .status {
-    padding: 7px 10px;
+    background: #d3f9d8;
+    color: #2b8a3e;
+    padding: 5px 10px;
     border-radius: 20px;
     font-size: 13px;
-    background: #e7f8ed;
-    color: #16843b;
 }
 
-.queue {
-    text-align: center;
-    background: #1769ff;
-    color: white;
-    padding: 25px;
-    border-radius: 18px;
-    margin-top: 15px;
+.route {
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.8;
 }
 
-.queue-number {
-    font-size: 50px;
+button {
+    width: 100%;
+    border: none;
+    padding: 13px;
+    border-radius: 12px;
+    font-size: 17px;
     font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.start-btn {
+    background: #087f5b;
+    color: white;
+}
+
+.start-btn:hover {
+    background: #066b4d;
+}
+
+.info-btn {
+    background: #e7f5ef;
+    color: #087f5b;
+}
+
+.stop {
+    display: none;
+    margin-top: 12px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    line-height: 1.9;
+}
+
+.stop.active {
+    display: block;
+}
+
+.message {
+    display: none;
+    padding: 15px;
+    margin-top: 15px;
+    background: #d3f9d8;
+    color: #2b8a3e;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.message.show {
+    display: block;
 }
 
 footer {
     text-align: center;
     color: #777;
-    padding: 20px;
-    font-size: 13px;
+    padding: 25px 10px;
+    font-size: 14px;
 }
 
-.hidden {
-    display: none;
+.location {
+    background: #fff3bf;
+    color: #856404;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 12px;
 }
 
-.driver-btn {
-    background: #222;
+.clock {
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    margin-top: 10px;
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-    <div class="logo">د</div>
-
-    <h1>دوري</h1>
-
-    <p>نظام تنظيم سرافيس معربا</p>
-
+    <h1>🚐 دوري</h1>
+    <p>دليل سرافيس معربا</p>
 </header>
-
 
 <div class="container">
 
+    <div class="card welcome">
+        <div class="welcome-icon">🚐</div>
+        <h2>أهلاً بك في دوري</h2>
+        <p>
+            تطبيق يساعدك على معرفة خطوط السرافيس
+            والمواقف داخل معربا.
+        </p>
+
+        <div class="location">
+            📍 المنطقة: معربا - ريف دمشق
+        </div>
+
+        <div class="clock" id="clock"></div>
+    </div>
+
     <div class="card">
+        <h2>🚌 خطوط السرافيس</h2>
 
-        <h2>🚐 اختر اتجاه الرحلة</h2>
+        <!-- السرفيس 101 -->
+        <div class="service">
 
-        <div class="direction">
+            <div class="service-title">
+                <span class="service-number">سرفيس 101</span>
+                <span class="status">متاح</span>
+            </div>
 
-            <button id="toDamascus"
-                    class="active"
-                    onclick="selectDirection('damascus')">
+            <div class="route">
+                📍 الخط:
+                <strong>معربا ↔ دمشق</strong>
+            </div>
 
-                معربا ← دمشق
-
+            <button
+                class="start-btn"
+                onclick="startTrip('101')">
+                ▶️ بدء رحلة سرفيس 101
             </button>
 
-            <button id="toMaaraba"
-                    onclick="selectDirection('maaraba')">
-
-                دمشق ← معربا
-
+            <button
+                class="info-btn"
+                onclick="showStops('stops101')">
+                📍 عرض المواقف
             </button>
 
+            <div id="stops101" class="stop">
+                <strong>مواقف سرفيس 101:</strong><br>
+                1️⃣ موقف معربا الرئيسي<br>
+                2️⃣ موقف الطريق العام<br>
+                3️⃣ موقف جسر الريم<br>
+                4️⃣ موقف برزة<br>
+                5️⃣ دمشق
+            </div>
+
         </div>
 
-    </div>
+        <!-- السرفيس 102 -->
+        <div class="service">
 
+            <div class="service-title">
+                <span class="service-number">سرفيس 102</span>
+                <span class="status">متاح</span>
+            </div>
+
+            <div class="route">
+                📍 الخط:
+                <strong>معربا ↔ ريف دمشق</strong>
+            </div>
+
+            <button
+                class="start-btn"
+                onclick="startTrip('102')">
+                ▶️ بدء رحلة سرفيس 102
+            </button>
+
+            <button
+                class="info-btn"
+                onclick="showStops('stops102')">
+                📍 عرض المواقف
+            </button>
+
+            <div id="stops102" class="stop">
+                <strong>مواقف سرفيس 102:</strong><br>
+                1️⃣ موقف معربا الرئيسي<br>
+                2️⃣ موقف البلدية<br>
+                3️⃣ موقف الطريق العام<br>
+                4️⃣ الموقف الأخير
+            </div>
+
+        </div>
+
+        <div id="message" class="message"></div>
+
+    </div>
 
     <div class="card">
-
-        <div id="routeTitle" class="route-title">
-
-            🚐 الرحلة الحالية:
-            معربا ← دمشق
-
-        </div>
-
-        <h2>🚕 السرافيس الموجودة في الكراج</h2>
-
-        <div id="vehicles">
-
-            <div class="vehicle">
-
-                <div>
-
-                    <div class="vehicle-number">
-                        سرفيس رقم 101
-                    </div>
-
-                    <small>
-                        الدور: 1
-                    </small>
-
-                </div>
-
-                <span class="status">
-                    جاهز
-                </span>
-
-            </div>
-
-
-            <div class="vehicle">
-
-                <div>
-
-                    <div class="vehicle-number">
-                        سرفيس رقم 102
-                    </div>
-
-                    <small>
-                        الدور: 2
-                    </small>
-
-                </div>
-
-                <span class="status">
-                    جاهز
-                </span>
-
-            </div>
-
-
-            <div class="vehicle">
-
-                <div>
-
-                    <div class="vehicle-number">
-                        سرفيس رقم 103
-                    </div>
-
-                    <small>
-                        الدور: 3
-                    </small>
-
-                </div>
-
-                <span class="status">
-                    جاهز
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="card">
-
-        <h2>📋 معلومات الدور</h2>
+        <h2>ℹ️ عن التطبيق</h2>
 
         <p>
-            السرفيس الحالي على الدور:
-            <strong>سرفيس رقم 101</strong>
+            دوري هو مشروع لتسهيل معرفة خطوط ومواقف
+            السرافيس في مدينة معربا.
         </p>
-
-        <div class="queue">
-
-            <div>
-                السرفيس التالي
-            </div>
-
-            <div class="queue-number">
-                1
-            </div>
-
-            <div>
-                يرجى انتظار دورك
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="card">
-
-        <h2>👨‍✈️ قسم السائق</h2>
 
         <p>
-            تسجيل السرفيس وإدارة الدور والرحلات.
+            🚐 اختر رقم السرفيس لمعرفة خطه ومواقفه.
         </p>
-
-        <button class="main-btn driver-btn"
-                onclick="driverLogin()">
-
-            دخول السائق
-
-        </button>
-
-    </div>
-
-
-    <div id="driverPanel" class="card hidden">
-
-        <h2>🚐 لوحة السائق</h2>
-
-        <p>
-            حالة السرفيس:
-            <strong id="driverStatus">
-                خارج الكراج
-            </strong>
-        </p>
-
-        <button class="main-btn"
-                onclick="enterGarage()">
-
-            دخول الكراج وإضافة للدور
-
-        </button>
-
-        <button class="main-btn"
-                onclick="startTrip()">
-
-            بدء الرحلة
-
-        </button>
-
-        <button class="main-btn"
-                onclick="finishTrip()">
-
-            الوصول وإنهاء الرحلة
-
-        </button>
-
     </div>
 
 </div>
 
-
 <footer>
-
-    تطبيق دوري © 2026
+    دوري 🚐 | سرافيس معربا
     <br>
-    مواصلات سرافيس معربا
-
+    الإصدار الأول
 </footer>
 
 
 <script>
 
-let direction = "damascus";
+function startTrip(serviceNumber) {
 
-function selectDirection(value) {
+    const message = document.getElementById("message");
 
-    direction = value;
+    message.innerHTML =
+        "🚐 تم بدء رحلة سرفيس " +
+        serviceNumber +
+        " بنجاح";
 
-    const damascus =
-        document.getElementById("toDamascus");
+    message.classList.add("show");
 
-    const maaraba =
-        document.getElementById("toMaaraba");
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
 
-    const title =
-        document.getElementById("routeTitle");
 
-    if (value === "damascus") {
+function showStops(id) {
 
-        damascus.classList.add("active");
-        maaraba.classList.remove("active");
+    const element = document.getElementById(id);
 
-        title.innerHTML =
-            "🚐 الرحلة الحالية: معربا ← دمشق";
+    if (element.classList.contains("active")) {
+
+        element.classList.remove("active");
 
     } else {
 
-        maaraba.classList.add("active");
-        damascus.classList.remove("active");
-
-        title.innerHTML =
-            "🚐 الرحلة الحالية: دمشق ← معربا";
+        element.classList.add("active");
 
     }
-
 }
 
 
-function driverLogin() {
+function updateClock() {
 
-    const panel =
-        document.getElementById("driverPanel");
+    const now = new Date();
 
-    panel.classList.toggle("hidden");
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
 
+    document.getElementById("clock").innerHTML =
+        "🕐 الوقت الآن: " +
+        hours + ":" +
+        minutes + ":" +
+        seconds;
 }
 
+setInterval(updateClock, 1000);
 
-function enterGarage() {
-
-    document.getElementById("driverStatus").innerText =
-        "داخل الكراج - بانتظار الدور";
-
-    alert(
-        "تم تسجيل دخول السرفيس إلى الكراج وإضافته إلى الدور."
-    );
-
-}
-
-
-function startTrip() {
-
-    document.getElementById("driverStatus").innerText =
-        "في الرحلة 🚐";
-
-    alert(
-        "تم بدء الرحلة بنجاح."
-    );
-
-}
-
-
-function finishTrip() {
-
-    document.getElementById("driverStatus").innerText =
-        "وصل إلى الوجهة";
-
-    alert(
-        "تم تسجيل الوصول. يمكن للسائق الآن الانضمام إلى دور العودة."
-    );
-
-}
+updateClock();
 
 </script>
 
