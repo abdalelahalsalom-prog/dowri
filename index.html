@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>دوري - سرافيس معربا</title>
 
+<!-- Leaflet Map -->
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -21,348 +32,502 @@ body {
 header {
     background: linear-gradient(135deg, #087f5b, #0ca678);
     color: white;
-    padding: 25px 20px;
     text-align: center;
+    padding: 25px 15px;
     border-radius: 0 0 25px 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 header h1 {
     margin: 0;
-    font-size: 32px;
+    font-size: 34px;
 }
 
 header p {
     margin: 8px 0 0;
-    font-size: 16px;
-    opacity: 0.9;
 }
 
 .container {
-    width: 92%;
-    max-width: 600px;
+    width: 94%;
+    max-width: 650px;
     margin: 20px auto;
 }
 
 .card {
     background: white;
     border-radius: 18px;
-    padding: 20px;
+    padding: 18px;
     margin-bottom: 18px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 12px rgba(0,0,0,.08);
 }
 
 .card h2 {
+    color: #087f5b;
     margin-top: 0;
-    color: #087f5b;
-    font-size: 21px;
 }
 
-.welcome {
+.location-box {
+    background: #e7f5ef;
+    padding: 15px;
+    border-radius: 14px;
     text-align: center;
-}
-
-.welcome-icon {
-    font-size: 55px;
-    margin-bottom: 5px;
-}
-
-.service {
-    border: 2px solid #e9ecef;
-    border-radius: 15px;
-    padding: 16px;
-    margin-top: 12px;
-    transition: 0.2s;
-}
-
-.service:hover {
-    border-color: #0ca678;
-}
-
-.service-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.service-number {
-    font-size: 24px;
-    font-weight: bold;
-    color: #087f5b;
-}
-
-.status {
-    background: #d3f9d8;
-    color: #2b8a3e;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 13px;
-}
-
-.route {
-    color: #555;
-    margin: 10px 0;
-    line-height: 1.8;
+    margin-bottom: 15px;
 }
 
 button {
     width: 100%;
     border: none;
-    padding: 13px;
     border-radius: 12px;
+    padding: 14px;
+    margin-top: 8px;
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 8px;
 }
 
-.start-btn {
+.location-btn {
     background: #087f5b;
     color: white;
 }
 
-.start-btn:hover {
-    background: #066b4d;
+.location-btn:active {
+    transform: scale(.98);
 }
 
-.info-btn {
+.service {
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 12px;
+}
+
+.service-number {
+    font-size: 23px;
+    font-weight: bold;
+    color: #087f5b;
+}
+
+.service-route {
+    margin: 10px 0;
+    color: #555;
+}
+
+.service-btn {
     background: #e7f5ef;
     color: #087f5b;
 }
 
-.stop {
-    display: none;
+.selected {
+    border-color: #087f5b;
+    background: #f0fff8;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.status {
     margin-top: 12px;
     padding: 12px;
     background: #f8f9fa;
     border-radius: 10px;
-    line-height: 1.9;
-}
-
-.stop.active {
-    display: block;
-}
-
-.message {
-    display: none;
-    padding: 15px;
-    margin-top: 15px;
-    background: #d3f9d8;
-    color: #2b8a3e;
-    border-radius: 12px;
     text-align: center;
-    font-weight: bold;
-}
-
-.message.show {
-    display: block;
 }
 
 footer {
     text-align: center;
+    padding: 25px;
     color: #777;
-    padding: 25px 10px;
-    font-size: 14px;
 }
 
-.location {
-    background: #fff3bf;
-    color: #856404;
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
-    margin-top: 12px;
-}
-
-.clock {
-    text-align: center;
-    font-size: 15px;
-    color: #666;
-    margin-top: 10px;
-}
 </style>
+
 </head>
 
 <body>
 
 <header>
-    <h1>🚐 دوري</h1>
-    <p>دليل سرافيس معربا</p>
+
+<h1>🚐 دوري</h1>
+
+<p>دليل سرافيس معربا</p>
+
 </header>
+
 
 <div class="container">
 
-    <div class="card welcome">
-        <div class="welcome-icon">🚐</div>
-        <h2>أهلاً بك في دوري</h2>
-        <p>
-            تطبيق يساعدك على معرفة خطوط السرافيس
-            والمواقف داخل معربا.
-        </p>
 
-        <div class="location">
-            📍 المنطقة: معربا - ريف دمشق
-        </div>
+<!-- الترحيب -->
 
-        <div class="clock" id="clock"></div>
-    </div>
+<div class="card">
 
-    <div class="card">
-        <h2>🚌 خطوط السرافيس</h2>
+<h2>👋 أهلاً بك</h2>
 
-        <!-- السرفيس 101 -->
-        <div class="service">
+<p>
+تطبيق دوري يساعدك على معرفة خطوط
+السرافيس وموقعك الحالي في معربا.
+</p>
 
-            <div class="service-title">
-                <span class="service-number">سرفيس 101</span>
-                <span class="status">متاح</span>
-            </div>
+<div class="location-box">
 
-            <div class="route">
-                📍 الخط:
-                <strong>معربا ↔ دمشق</strong>
-            </div>
+📍 اضغط على الزر لمعرفة موقعك الحالي
 
-            <button
-                class="start-btn"
-                onclick="startTrip('101')">
-                ▶️ بدء رحلة سرفيس 101
-            </button>
+<button
+class="location-btn"
+onclick="getLocation()">
 
-            <button
-                class="info-btn"
-                onclick="showStops('stops101')">
-                📍 عرض المواقف
-            </button>
+📍 تحديد موقعي
 
-            <div id="stops101" class="stop">
-                <strong>مواقف سرفيس 101:</strong><br>
-                1️⃣ موقف معربا الرئيسي<br>
-                2️⃣ موقف الطريق العام<br>
-                3️⃣ موقف جسر الريم<br>
-                4️⃣ موقف برزة<br>
-                5️⃣ دمشق
-            </div>
+</button>
 
-        </div>
+<div
+id="locationStatus"
+class="status">
 
-        <!-- السرفيس 102 -->
-        <div class="service">
-
-            <div class="service-title">
-                <span class="service-number">سرفيس 102</span>
-                <span class="status">متاح</span>
-            </div>
-
-            <div class="route">
-                📍 الخط:
-                <strong>معربا ↔ ريف دمشق</strong>
-            </div>
-
-            <button
-                class="start-btn"
-                onclick="startTrip('102')">
-                ▶️ بدء رحلة سرفيس 102
-            </button>
-
-            <button
-                class="info-btn"
-                onclick="showStops('stops102')">
-                📍 عرض المواقف
-            </button>
-
-            <div id="stops102" class="stop">
-                <strong>مواقف سرفيس 102:</strong><br>
-                1️⃣ موقف معربا الرئيسي<br>
-                2️⃣ موقف البلدية<br>
-                3️⃣ موقف الطريق العام<br>
-                4️⃣ الموقف الأخير
-            </div>
-
-        </div>
-
-        <div id="message" class="message"></div>
-
-    </div>
-
-    <div class="card">
-        <h2>ℹ️ عن التطبيق</h2>
-
-        <p>
-            دوري هو مشروع لتسهيل معرفة خطوط ومواقف
-            السرافيس في مدينة معربا.
-        </p>
-
-        <p>
-            🚐 اختر رقم السرفيس لمعرفة خطه ومواقفه.
-        </p>
-    </div>
+لم يتم تحديد الموقع بعد
 
 </div>
 
+</div>
+
+</div>
+
+
+<!-- الخريطة -->
+
+<div class="card">
+
+<h2>🗺️ الخريطة</h2>
+
+<div id="map"></div>
+
+</div>
+
+
+<!-- السرافيس -->
+
+<div class="card">
+
+<h2>🚌 خطوط السرافيس</h2>
+
+
+<div
+class="service"
+id="service101">
+
+<div class="service-number">
+سرفيس 101
+</div>
+
+<div class="service-route">
+📍 معربا ↔ دمشق
+</div>
+
+<button
+class="service-btn"
+onclick="selectService('101')">
+
+اختيار سرفيس 101
+
+</button>
+
+</div>
+
+
+<div
+class="service"
+id="service102">
+
+<div class="service-number">
+سرفيس 102
+</div>
+
+<div class="service-route">
+📍 معربا ↔ ريف دمشق
+</div>
+
+<button
+class="service-btn"
+onclick="selectService('102')">
+
+اختيار سرفيس 102
+
+</button>
+
+</div>
+
+
+<div
+id="selectedService"
+class="status">
+
+لم يتم اختيار سرفيس
+
+</div>
+
+</div>
+
+
+<!-- معلومات -->
+
+<div class="card">
+
+<h2>ℹ️ عن دوري</h2>
+
+<p>
+هذا الإصدار هو المرحلة الثانية من تطبيق
+دوري لسرافيس معربا.
+</p>
+
+<p>
+📍 يمكنك السماح للتطبيق بالوصول إلى موقعك
+حتى يظهر مكانك على الخريطة.
+</p>
+
+</div>
+
+
+</div>
+
+
 <footer>
-    دوري 🚐 | سرافيس معربا
-    <br>
-    الإصدار الأول
+
+دوري 🚐
+<br>
+سرافيس معربا
+<br>
+الإصدار 2.0
+
 </footer>
+
+
+<!-- Leaflet -->
+
+<script
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
 
 
 <script>
 
-function startTrip(serviceNumber) {
+/* =========================
+   إنشاء الخريطة
+========================= */
 
-    const message = document.getElementById("message");
-
-    message.innerHTML =
-        "🚐 تم بدء رحلة سرفيس " +
-        serviceNumber +
-        " بنجاح";
-
-    message.classList.add("show");
-
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth"
-    });
-}
+let map = L.map('map').setView(
+    [33.55, 36.25],
+    12
+);
 
 
-function showStops(id) {
+/* خريطة OpenStreetMap */
 
-    const element = document.getElementById(id);
-
-    if (element.classList.contains("active")) {
-
-        element.classList.remove("active");
-
-    } else {
-
-        element.classList.add("active");
-
+L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+        attribution:
+        '&copy; OpenStreetMap contributors'
     }
+).addTo(map);
+
+
+/* متغير موقع المستخدم */
+
+let userMarker = null;
+
+let userCircle = null;
+
+
+/* =========================
+   تحديد الموقع
+========================= */
+
+function getLocation() {
+
+    const status =
+    document.getElementById(
+        "locationStatus"
+    );
+
+    if (!navigator.geolocation) {
+
+        status.innerHTML =
+        "❌ جهازك لا يدعم تحديد الموقع";
+
+        return;
+    }
+
+
+    status.innerHTML =
+    "⏳ جارٍ تحديد موقعك...";
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const lat =
+            position.coords.latitude;
+
+            const lng =
+            position.coords.longitude;
+
+            const accuracy =
+            position.coords.accuracy;
+
+
+            /* حذف العلامة القديمة */
+
+            if (userMarker) {
+
+                map.removeLayer(
+                    userMarker
+                );
+
+            }
+
+
+            if (userCircle) {
+
+                map.removeLayer(
+                    userCircle
+                );
+
+            }
+
+
+            /* إضافة موقع المستخدم */
+
+            userMarker =
+            L.marker(
+                [lat, lng]
+            )
+            .addTo(map)
+            .bindPopup(
+                "📍 أنت هنا"
+            )
+            .openPopup();
+
+
+            /* دائرة الدقة */
+
+            userCircle =
+            L.circle(
+                [lat, lng],
+                {
+                    radius: accuracy
+                }
+            )
+            .addTo(map);
+
+
+            /* تحريك الخريطة */
+
+            map.setView(
+                [lat, lng],
+                16
+            );
+
+
+            status.innerHTML =
+            "✅ تم تحديد موقعك بنجاح<br>" +
+            "دقة الموقع: " +
+            Math.round(accuracy) +
+            " متر";
+
+        },
+
+
+        function(error) {
+
+            if (error.code === 1) {
+
+                status.innerHTML =
+                "❌ يجب السماح للتطبيق بالوصول إلى الموقع";
+
+            }
+
+            else if (error.code === 2) {
+
+                status.innerHTML =
+                "❌ تعذر تحديد موقعك";
+
+            }
+
+            else if (error.code === 3) {
+
+                status.innerHTML =
+                "❌ انتهت مهلة تحديد الموقع";
+
+            }
+
+            else {
+
+                status.innerHTML =
+                "❌ حدث خطأ أثناء تحديد الموقع";
+
+            }
+
+        },
+
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        }
+
+    );
+
 }
 
 
-function updateClock() {
+/* =========================
+   اختيار السرفيس
+========================= */
 
-    const now = new Date();
+function selectService(number) {
 
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
-    const seconds = String(now.getSeconds()).padStart(2, "0");
 
-    document.getElementById("clock").innerHTML =
-        "🕐 الوقت الآن: " +
-        hours + ":" +
-        minutes + ":" +
-        seconds;
+    document
+    .getElementById("service101")
+    .classList.remove("selected");
+
+
+    document
+    .getElementById("service102")
+    .classList.remove("selected");
+
+
+    document
+    .getElementById(
+        "service" + number
+    )
+    .classList.add("selected");
+
+
+    document
+    .getElementById(
+        "selectedService"
+    )
+    .innerHTML =
+    "🚌 تم اختيار سرفيس " +
+    number;
+
+
+    /* رسالة */
+
+    alert(
+        "🚐 تم اختيار سرفيس " +
+        number
+    );
+
 }
-
-setInterval(updateClock, 1000);
-
-updateClock();
 
 </script>
 
 </body>
+
 </html>
