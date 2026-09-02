@@ -1,516 +1,818 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>دوري - دليل سرافيس معربا</title>
+<title>دوري - سرافيس معربا</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Tahoma, Arial, sans-serif;
-    }
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Tahoma,Arial,sans-serif;
+}
 
-    body {
-      background: #f3f6f8;
-      color: #222;
-      padding-bottom: 30px;
-    }
+body{
+    background:#f3f7f8;
+    color:#222;
+}
 
-    /* الهيدر */
-    .header {
-      background: linear-gradient(135deg, #079b72, #0ca57a);
-      color: white;
-      text-align: center;
-      padding: 65px 20px 45px;
-      border-radius: 0 0 45px 45px;
-    }
+.header{
+    background:linear-gradient(135deg,#078b68,#10ad7e);
+    color:white;
+    text-align:center;
+    padding:55px 20px 45px;
+    border-radius:0 0 45px 45px;
+}
 
-    .logo {
-      font-size: 48px;
-      font-weight: bold;
-    }
+.logo{
+    font-size:48px;
+    font-weight:bold;
+}
 
-    .bus-top {
-      font-size: 48px;
-      vertical-align: middle;
-    }
+.subtitle{
+    font-size:22px;
+    margin-top:12px;
+}
 
-    .subtitle {
-      font-size: 24px;
-      margin-top: 20px;
-      opacity: 0.95;
-    }
+.container{
+    width:92%;
+    max-width:700px;
+    margin:25px auto;
+}
 
-    /* الحاوية */
-    .container {
-      width: 92%;
-      max-width: 700px;
-      margin: 35px auto;
-    }
+.card{
+    background:white;
+    border-radius:28px;
+    padding:25px;
+    margin-bottom:22px;
+    box-shadow:0 6px 20px rgba(0,0,0,.07);
+}
 
-    /* البطاقات */
-    .card {
-      background: white;
-      border-radius: 30px;
-      padding: 35px 25px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-    }
+.title{
+    color:#087f60;
+    font-size:27px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
 
-    .welcome {
-      text-align: center;
-    }
+.route{
+    border:2px solid #e8eeee;
+    border-radius:22px;
+    padding:20px;
+    margin-bottom:18px;
+}
 
-    .big-bus {
-      font-size: 75px;
-      margin-bottom: 10px;
-    }
+.route h3{
+    color:#087f60;
+    font-size:25px;
+    margin-bottom:12px;
+}
 
-    h2 {
-      color: #087f60;
-      font-size: 31px;
-      margin-bottom: 25px;
-    }
+.route p{
+    font-size:18px;
+    line-height:1.8;
+}
 
-    .description {
-      font-size: 22px;
-      line-height: 1.9;
-      margin-bottom: 25px;
-    }
+.status{
+    display:inline-block;
+    background:#d9f7e2;
+    color:#15803d;
+    padding:7px 13px;
+    border-radius:20px;
+    margin-top:10px;
+}
 
-    /* المنطقة */
-    .location-info {
-      background: #fff3b8;
-      padding: 18px;
-      border-radius: 20px;
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
+.cars{
+    font-size:20px;
+    line-height:2;
+}
 
-    .current-time {
-      color: #777;
-      font-size: 20px;
-      margin-top: 10px;
-    }
+.station{
+    background:#fff6c7;
+    border-radius:18px;
+    padding:18px;
+    margin-top:12px;
+    font-size:19px;
+}
 
-    /* زر الموقع */
-    .location-button {
-      width: 100%;
-      border: none;
-      background: #087f60;
-      color: white;
-      padding: 18px;
-      border-radius: 18px;
-      font-size: 21px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 18px;
-      transition: 0.2s;
-    }
+.button{
+    width:100%;
+    border:0;
+    border-radius:17px;
+    padding:16px;
+    margin-top:12px;
+    background:#087f60;
+    color:white;
+    font-size:19px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-    .location-button:active {
-      transform: scale(0.98);
-    }
+.button.secondary{
+    background:#e7f5f1;
+    color:#087f60;
+}
 
-    .location-button:hover {
-      background: #066d52;
-    }
+.button.danger{
+    background:#c62828;
+}
 
-    .location-status {
-      margin-top: 15px;
-      padding: 14px;
-      border-radius: 15px;
-      background: #e8f7f2;
-      color: #087f60;
-      font-size: 17px;
-      display: none;
-    }
+.hidden{
+    display:none;
+}
 
-    /* عنوان الخطوط */
-    .section-title {
-      color: #087f60;
-      font-size: 30px;
-      font-weight: bold;
-      margin-bottom: 25px;
-    }
+.input{
+    width:100%;
+    padding:15px;
+    margin-top:10px;
+    border:2px solid #e1e6e6;
+    border-radius:14px;
+    font-size:17px;
+}
 
-    /* بطاقة السرفيس */
-    .route-card {
-      border: 3px solid #e9ecef;
-      border-radius: 25px;
-      padding: 25px;
-      margin-bottom: 20px;
-    }
+select{
+    width:100%;
+    padding:15px;
+    margin-top:10px;
+    border:2px solid #e1e6e6;
+    border-radius:14px;
+    font-size:17px;
+    background:white;
+}
 
-    .route-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
+.info{
+    background:#eef8f5;
+    padding:18px;
+    border-radius:18px;
+    margin-top:15px;
+    line-height:2;
+    font-size:18px;
+}
 
-    .route-name {
-      color: #087f60;
-      font-size: 28px;
-      font-weight: bold;
-    }
+.queue{
+    font-size:22px;
+    color:#087f60;
+    font-weight:bold;
+    text-align:center;
+    padding:20px;
+}
 
-    .available {
-      background: #d8f7df;
-      color: #16863c;
-      padding: 10px 15px;
-      border-radius: 25px;
-      font-size: 17px;
-    }
+.small{
+    color:#777;
+    font-size:15px;
+    margin-top:8px;
+}
 
-    .route {
-      font-size: 20px;
-      color: #555;
-      margin: 20px 0;
-    }
+.footer{
+    text-align:center;
+    color:#777;
+    padding:20px;
+}
 
-    .start-button {
-      width: 100%;
-      border: none;
-      background: #078660;
-      color: white;
-      padding: 18px;
-      border-radius: 18px;
-      font-size: 21px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .start-button:hover {
-      background: #066d52;
-    }
-
-    /* نتيجة الموقع */
-    .coordinates {
-      margin-top: 15px;
-      font-size: 16px;
-      color: #666;
-      direction: ltr;
-    }
-
-    /* الخريطة */
-    #map {
-      width: 100%;
-      height: 350px;
-      border-radius: 25px;
-      margin-top: 20px;
-      display: none;
-      border: 2px solid #ddd;
-    }
-
-    /* الهاتف */
-    @media (max-width: 500px) {
-      .header {
-        padding-top: 55px;
-      }
-
-      .logo {
-        font-size: 43px;
-      }
-
-      .subtitle {
-        font-size: 21px;
-      }
-
-      .card {
-        padding: 30px 20px;
-      }
-
-      h2 {
-        font-size: 28px;
-      }
-
-      .description {
-        font-size: 20px;
-      }
-
-      .route-name {
-        font-size: 25px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- رأس التطبيق -->
-  <header class="header">
+<header class="header">
+
     <div class="logo">
-      دوري 🚌
+        دوري 🚌
     </div>
 
     <div class="subtitle">
-      دليل سرافيس معربا
+        دليل سرافيس معربا
     </div>
-  </header>
+
+</header>
 
 
-  <main class="container">
-
-    <!-- الترحيب -->
-    <section class="card welcome">
-
-      <div class="big-bus">
-        🚌
-      </div>
-
-      <h2>
-        أهلاً بك في دوري
-      </h2>
-
-      <p class="description">
-        تطبيق يساعدك على معرفة خطوط السرافيس والمواقف
-        داخل معربا.
-      </p>
-
-      <!-- المنطقة -->
-      <div class="location-info">
-        📍 المنطقة: <strong>معربا</strong>
-      </div>
-
-      <!-- الوقت -->
-      <div class="current-time">
-        🕐 الوقت الآن:
-        <span id="time">--:--:--</span>
-      </div>
-
-      <!-- زر تحديد الموقع -->
-      <button
-        class="location-button"
-        onclick="getLocation()">
-        📍 تحديد موقعي
-      </button>
-
-      <div
-        id="locationStatus"
-        class="location-status">
-      </div>
-
-      <div
-        id="coordinates"
-        class="coordinates">
-      </div>
-
-      <!-- الخريطة -->
-      <div id="map"></div>
-
-    </section>
+<div class="container">
 
 
-    <!-- خطوط السرافيس -->
-    <section class="card">
+<!-- =========================
+     الواجهة الرئيسية للراكب
+========================= -->
 
-      <div class="section-title">
+<section id="home">
+
+<div class="card">
+
+    <div class="title">
         🚌 خطوط السرافيس
-      </div>
+    </div>
 
+    <div class="route">
 
-      <!-- خط 101 -->
-      <div class="route-card">
-
-        <div class="route-header">
-
-          <div class="route-name">
+        <h3>
             سرفيس 101
-          </div>
+        </h3>
 
-          <div class="available">
+        <p>
+            📍 الخط:
+            <strong>معربا ↔ دمشق</strong>
+        </p>
+
+        <span class="status">
             متاح
-          </div>
+        </span>
 
-        </div>
+    </div>
 
-        <div class="route">
-          📍 الخط:
-          <strong>معربا ↔ دمشق</strong>
-        </div>
+</div>
+
+
+<div class="card">
+
+    <div class="title">
+        📍 الكراجات
+    </div>
+
+    <div class="station">
+
+        🟢 <strong>كراج معربا</strong>
+
+        <br>
+
+        موقف انطلاق السرافيس باتجاه دمشق
 
         <button
-          class="start-button"
-          onclick="startRoute('101')">
-          ▶️ بدء رحلة سرفيس 101
+            class="button secondary"
+            onclick="openMap('maaraba')">
+
+            🗺️ عرض الموقع
+
         </button>
 
-      </div>
-
-    </section>
-
-  </main>
+    </div>
 
 
-  <script>
+    <div class="station">
 
-    /* =========================
-       الساعة
-    ========================= */
+        🔵 <strong>كراج العباسيين – دمشق</strong>
 
-    function updateTime() {
+        <br>
 
-      const now = new Date();
+        موقف السرافيس باتجاه معربا
 
-      const hours =
-        String(now.getHours()).padStart(2, '0');
+        <button
+            class="button secondary"
+            onclick="openMap('abbasiyeen')">
 
-      const minutes =
-        String(now.getMinutes()).padStart(2, '0');
+            🗺️ عرض الموقع
 
-      const seconds =
-        String(now.getSeconds()).padStart(2, '0');
+        </button>
 
-      document.getElementById("time").textContent =
-        `${hours}:${minutes}:${seconds}`;
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <div class="title">
+        👤 الدخول
+    </div>
+
+    <button
+        class="button"
+        onclick="showDriver()">
+
+        🚐 دخول السائق
+
+    </button>
+
+    <button
+        class="button"
+        onclick="showAdmin()">
+
+        👨‍💼 دخول الإدارة
+
+    </button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     لوحة السائق
+========================= -->
+
+<section id="driver" class="hidden">
+
+<div class="card">
+
+    <div class="title">
+        🚐 لوحة السائق
+    </div>
+
+    <input
+        id="driverName"
+        class="input"
+        placeholder="اسم السائق">
+
+    <input
+        id="driverNumber"
+        class="input"
+        placeholder="رقم السرفيس">
+
+    <select id="driverStation">
+
+        <option value="">
+            اختر الكراج
+        </option>
+
+        <option value="maaraba">
+            كراج معربا
+        </option>
+
+        <option value="abbasiyeen">
+            كراج العباسيين – دمشق
+        </option>
+
+    </select>
+
+    <button
+        class="button"
+        onclick="reserveQueue()">
+
+        📍 حجز دوري في الكراج
+
+    </button>
+
+    <div
+        id="driverResult"
+        class="info hidden">
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <div class="title">
+        🔄 التنقل بين الكراجات
+    </div>
+
+    <p>
+        يستطيع السائق حجز دوره في كراج معربا
+        أو كراج العباسيين حسب مكان وجوده.
+    </p>
+
+</div>
+
+
+<button
+    class="button secondary"
+    onclick="backHome()">
+
+    ⬅️ العودة
+
+</button>
+
+</section>
+
+
+
+<!-- =========================
+     لوحة الإدارة
+========================= -->
+
+<section id="admin" class="hidden">
+
+<div class="card">
+
+    <div class="title">
+        👨‍💼 لوحة الإدارة
+    </div>
+
+    <div class="info">
+
+        الإدارة تتحكم بالسرافيس والسائقين
+        والأدوار في الكراجات.
+
+    </div>
+
+</div>
+
+
+<!-- إضافة سرفيس -->
+
+<div class="card">
+
+    <div class="title">
+        🚌 إضافة سرفيس
+    </div>
+
+    <input
+        id="newBusNumber"
+        class="input"
+        placeholder="رقم السرفيس">
+
+    <input
+        id="newDriverName"
+        class="input"
+        placeholder="اسم السائق">
+
+    <button
+        class="button"
+        onclick="addBus()">
+
+        ➕ إضافة السرفيس
+
+    </button>
+
+    <div
+        id="busResult"
+        class="info hidden">
+    </div>
+
+</div>
+
+
+<!-- إدارة السائق -->
+
+<div class="card">
+
+    <div class="title">
+        👤 بيانات السائق
+    </div>
+
+    <input
+        id="personName"
+        class="input"
+        placeholder="اسم الشخص">
+
+    <input
+        id="personPhone"
+        class="input"
+        placeholder="رقم الهاتف">
+
+    <input
+        id="personBus"
+        class="input"
+        placeholder="رقم السرفيس">
+
+    <button
+        class="button"
+        onclick="addPerson()">
+
+        💾 حفظ بيانات الشخص
+
+    </button>
+
+    <div
+        id="personResult"
+        class="info hidden">
+    </div>
+
+</div>
+
+
+<!-- الأدوار -->
+
+<div class="card">
+
+    <div class="title">
+        📋 الأدوار في الكراجات
+    </div>
+
+    <div class="station">
+
+        🟢 كراج معربا
+
+        <div
+            id="maarabaQueue"
+            class="queue">
+
+            الدور الحالي: 0
+
+        </div>
+
+    </div>
+
+
+    <div class="station">
+
+        🔵 كراج العباسيين – دمشق
+
+        <div
+            id="abbasiyeenQueue"
+            class="queue">
+
+            الدور الحالي: 0
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<button
+    class="button secondary"
+    onclick="backHome()">
+
+    ⬅️ العودة
+
+</button>
+
+</section>
+
+</div>
+
+
+<div class="footer">
+    دوري 🚌 — دليل سرافيس معربا
+</div>
+
+
+
+<script>
+
+/* =========================
+   إظهار الواجهات
+========================= */
+
+function hideAll(){
+
+    document.getElementById("home")
+        .classList.add("hidden");
+
+    document.getElementById("driver")
+        .classList.add("hidden");
+
+    document.getElementById("admin")
+        .classList.add("hidden");
+
+}
+
+
+function showDriver(){
+
+    hideAll();
+
+    document.getElementById("driver")
+        .classList.remove("hidden");
+
+}
+
+
+function showAdmin(){
+
+    hideAll();
+
+    document.getElementById("admin")
+        .classList.remove("hidden");
+
+}
+
+
+function backHome(){
+
+    hideAll();
+
+    document.getElementById("home")
+        .classList.remove("hidden");
+
+}
+
+
+
+/* =========================
+   الخريطة
+========================= */
+
+function openMap(place){
+
+    let url = "";
+
+    if(place === "maaraba"){
+
+        url =
+        "https://www.google.com/maps/search/?api=1&query=كراج+معربا";
+
     }
 
-    updateTime();
+    if(place === "abbasiyeen"){
 
-    setInterval(updateTime, 1000);
+        url =
+        "https://www.google.com/maps/search/?api=1&query=كراج+العباسيين+دمشق";
 
+    }
 
-    /* =========================
-       تحديد الموقع
-    ========================= */
+    window.open(url,"_blank");
 
-    function getLocation() {
-
-      const status =
-        document.getElementById("locationStatus");
-
-      const coordinates =
-        document.getElementById("coordinates");
-
-      status.style.display = "block";
-
-      status.textContent =
-        "⏳ جارٍ تحديد موقعك...";
-
-      coordinates.textContent = "";
+}
 
 
-      if (!navigator.geolocation) {
 
-        status.textContent =
-          "❌ جهازك لا يدعم تحديد الموقع.";
+/* =========================
+   أدوار الكراجات
+========================= */
+
+let maarabaQueue =
+    Number(localStorage.getItem("maarabaQueue") || 0);
+
+let abbasiyeenQueue =
+    Number(localStorage.getItem("abbasiyeenQueue") || 0);
+
+
+function updateQueues(){
+
+    document.getElementById("maarabaQueue")
+        .textContent =
+        "الدور الحالي: " + maarabaQueue;
+
+
+    document.getElementById("abbasiyeenQueue")
+        .textContent =
+        "الدور الحالي: " + abbasiyeenQueue;
+
+}
+
+
+updateQueues();
+
+
+
+function reserveQueue(){
+
+    const name =
+        document.getElementById("driverName").value.trim();
+
+    const bus =
+        document.getElementById("driverNumber").value.trim();
+
+    const station =
+        document.getElementById("driverStation").value;
+
+    const result =
+        document.getElementById("driverResult");
+
+
+    if(!name || !bus || !station){
+
+        alert("يرجى إدخال اسم السائق ورقم السرفيس واختيار الكراج.");
 
         return;
-      }
-
-
-      navigator.geolocation.getCurrentPosition(
-
-        function(position) {
-
-          const latitude =
-            position.coords.latitude;
-
-          const longitude =
-            position.coords.longitude;
-
-
-          status.textContent =
-            "✅ تم تحديد موقعك بنجاح.";
-
-          coordinates.innerHTML =
-            `خط العرض: ${latitude.toFixed(6)}
-             <br>
-             خط الطول: ${longitude.toFixed(6)}`;
-
-
-          /* فتح الموقع على خرائط Google */
-
-          const googleMaps =
-            `https://www.google.com/maps?q=${latitude},${longitude}`;
-
-          const mapButton =
-            document.createElement("button");
-
-          mapButton.className =
-            "location-button";
-
-          mapButton.textContent =
-            "🗺️ فتح موقعي على الخريطة";
-
-          mapButton.onclick = function() {
-
-            window.open(
-              googleMaps,
-              "_blank"
-            );
-
-          };
-
-
-          status.appendChild(mapButton);
-
-        },
-
-
-        function(error) {
-
-          let message =
-            "❌ لم نتمكن من تحديد موقعك.";
-
-          if (error.code === 1) {
-
-            message =
-              "⚠️ تم رفض إذن الوصول إلى الموقع. اسمح للتطبيق بالوصول إلى موقعك.";
-
-          }
-
-          else if (error.code === 2) {
-
-            message =
-              "⚠️ تعذر العثور على موقعك حالياً.";
-
-          }
-
-          else if (error.code === 3) {
-
-            message =
-              "⚠️ انتهى وقت محاولة تحديد الموقع.";
-
-          }
-
-          status.textContent = message;
-
-        },
-
-        {
-          enableHighAccuracy: true,
-          timeout: 10000,
-          maximumAge: 0
-        }
-
-      );
 
     }
 
 
-    /* =========================
-       بدء الرحلة
-    ========================= */
+    let number;
 
-    function startRoute(route) {
 
-      if (route === "101") {
+    if(station === "maaraba"){
 
-        alert(
-          "🚌 سرفيس 101\n\nالخط: معربا ↔ دمشق\n\nسيتم إضافة تفاصيل الرحلة والمواقف في المرحلة القادمة."
+        maarabaQueue++;
+
+        number = maarabaQueue;
+
+        localStorage.setItem(
+            "maarabaQueue",
+            maarabaQueue
         );
 
-      }
+    }
+
+    else{
+
+        abbasiyeenQueue++;
+
+        number = abbasiyeenQueue;
+
+        localStorage.setItem(
+            "abbasiyeenQueue",
+            abbasiyeenQueue
+        );
 
     }
 
-  </script>
+
+    const stationName =
+        station === "maaraba"
+        ? "كراج معربا"
+        : "كراج العباسيين – دمشق";
+
+
+    result.classList.remove("hidden");
+
+    result.innerHTML =
+
+        "✅ تم تسجيل دور السائق<br><br>" +
+
+        "👤 السائق: " + name + "<br>" +
+
+        "🚌 السرفيس: " + bus + "<br>" +
+
+        "📍 الكراج: " + stationName + "<br>" +
+
+        "🔢 رقم الدور: <strong>" +
+        number +
+        "</strong>";
+
+
+    updateQueues();
+
+}
+
+
+
+/* =========================
+   إضافة سرفيس
+========================= */
+
+function addBus(){
+
+    const bus =
+        document.getElementById("newBusNumber")
+        .value.trim();
+
+    const driver =
+        document.getElementById("newDriverName")
+        .value.trim();
+
+    const result =
+        document.getElementById("busResult");
+
+
+    if(!bus || !driver){
+
+        alert("أدخل رقم السرفيس واسم السائق.");
+
+        return;
+
+    }
+
+
+    result.classList.remove("hidden");
+
+    result.innerHTML =
+
+        "✅ تمت إضافة السرفيس بنجاح<br><br>" +
+
+        "🚌 رقم السرفيس: " + bus + "<br>" +
+
+        "👤 السائق: " + driver + "<br>" +
+
+        "🛣️ الخط: معربا ↔ دمشق";
+
+}
+
+
+
+/* =========================
+   بيانات الشخص
+========================= */
+
+function addPerson(){
+
+    const name =
+        document.getElementById("personName")
+        .value.trim();
+
+    const phone =
+        document.getElementById("personPhone")
+        .value.trim();
+
+    const bus =
+        document.getElementById("personBus")
+        .value.trim();
+
+    const result =
+        document.getElementById("personResult");
+
+
+    if(!name || !phone || !bus){
+
+        alert("يرجى إدخال جميع بيانات الشخص.");
+
+        return;
+
+    }
+
+
+    result.classList.remove("hidden");
+
+    result.innerHTML =
+
+        "✅ تم حفظ بيانات الشخص<br><br>" +
+
+        "👤 الاسم: " + name + "<br>" +
+
+        "📱 الهاتف: " + phone + "<br>" +
+
+        "🚌 السرفيس: " + bus;
+
+}
+
+</script>
 
 </body>
 </html>
